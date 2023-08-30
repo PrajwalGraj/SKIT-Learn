@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hamburger-menu</title>
+</head>
+
+<body>
+    <section class="nav">
+
+        <input id="menu-toggle" type="checkbox" />
+        <label class="menu-button-container" for="menu-toggle">
+            <div class="menu-button"></div>
+        </label>
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="Sign-IN">Sign-IN</a></li>
+        </ul>
+        <div class="nav-search">
+            <input type="text" name="" placeholder="Search course" id="">
+        </div>
+    </section>
+
+</body>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        height: 100%;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .logo {
+        text-shadow: 2px 2px 4px #000000;
+        color: white;
+    }
+
+    .nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background: rgb(14, 145, 5);
+        color: white;
+        height: 65px;
+        padding: 1.5em;
+        font-weight: 900;
+        font-size: 25px;
+    }
+
+    .nav .nav-search {
+        display: flex;
+        justify-content: space-between;
+        width: 20%;
+    }
+
+    .nav .nav-search input {
+        width: 100%;
+        border-radius: 15px;
+        padding: 8px 10px;
+        margin: 10px 0;
+        border-color: #bbbbbb;
+        border-color: transparent;
+    }
+
+
+
+    .menu {
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu li a {
+        text-decoration: none;
+        color: white;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    .menu li a:hover {
+
+        color: rgb(0, 0, 0);
+    }
+
+    .menu>li {
+        margin: 0 1rem;
+        overflow: hidden;
+    }
+
+    /*Container for menu button  */
+    .menu-button-container {
+        display: none;
+        height: 100%;
+        width: 30px;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #menu-toggle {
+        display: none;
+    }
+
+    /*  Creating the menu button */
+    .menu-button,
+    .menu-button::before,
+    .menu-button::after {
+        display: block;
+        background-color: #fff;
+        position: absolute;
+        height: 6px;
+        width: 32px;
+        border-radius: 3px;
+    }
+
+    .menu-button::before {
+        content: '';
+        margin-top: -8px;
+    }
+
+    .menu-button::after {
+        content: '';
+        margin-top: 8px;
+    }
+
+    /*  Adding Functionality to the Hamburger Menu with CSS  */
+    #menu-toggle:checked+.menu-button-container .menu-button::before {
+        margin-top: 0px;
+        transform: rotate(45deg);
+    }
+
+    #menu-toggle:checked+.menu-button-container .menu-button {
+        background: rgba(255, 255, 255, 0);
+    }
+
+    #menu-toggle:checked+.menu-button-container .menu-button::after {
+        margin-top: 0px;
+        /*  transforms the hamburger icon into a cross  */
+        transform: rotate(-45deg);
+    }
+
+    /* Making the navbar responsive by CSS Media Queries */
+
+    @media (max-width:820px) {
+        .nav{
+            /* font-weight: 700; */
+            font-size: 20px;
+        }
+    
+    }
+
+    @media (max-width: 700px) {
+        .menu-button-container {
+            display: flex;
+        }
+
+        .menu {
+            position: absolute;
+            top: 0px;
+            margin-top: 50px;
+            left: 0;
+            flex-direction: column;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #menu-toggle~.menu li {
+            height: 0;
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        #menu-toggle:checked~.menu li {
+            border: 1px solid #9f9a9a;
+            height: 2.5em;
+            padding: 0.5em;
+        }
+
+        .menu>li {
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0.5em 0;
+            width: 100%;
+            color: black;
+            background: rgb(14, 145, 5);
+
+        }
+
+        .menu>li:not(:last-child) {
+            border-bottom: 1px solid #444;
+
+        }
+
+        .nav .nav-search {
+
+            width: 50%;
+        }
+    }
+
+</style>
+
+</html>
